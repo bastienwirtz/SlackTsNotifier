@@ -1,0 +1,11 @@
+[teamspeak]
+host = '127.0.0.1:10011'
+server_port = 9987
+user = 'serveradmin'
+password = 'xxxxxxxx'
+
+[slack]
+endpoint = 'https://hooks.slack.com/services/xxxxxxxx/xxxxxxxx'
+username = 'Teamspeak'
+channel = '#gamez'
+join_us_message = '*-> Join them !* server: <myTeamspeakServer>'

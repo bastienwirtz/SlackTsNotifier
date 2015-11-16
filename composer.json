@@ -1,0 +1,20 @@
+{
+    "name": "baboon/slack-teamspeak-integration",
+    "description": "Teamspeak3 Slack integration",
+    "authors": [
+        {
+            "name": "bastienwirtz",
+            "email": "bastien.wirtz@gmail.com"
+        }
+    ],
+    "require": {
+        "fkubis/teamspeak-php-framework": "dev-master",
+        "slim/slim": "^2.6",
+        "maknz/slack": "^1.7"
+    },
+    "autoload": {
+        "psr-0": {
+            "SlackTeamspeakIntegration" : "src/"
+        }
+    }
+}
