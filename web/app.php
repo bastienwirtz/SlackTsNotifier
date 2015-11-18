@@ -12,10 +12,9 @@
      * List TeamSpeak connected clients for custom slack slash commands
      * @see https://api.slack.com/slash-commands
      */
-    $app->get('/clients', function () use ($app) {
+    $app->post('/clients', function () use ($app) {
         $slackTsNotifier = new SlackTsNotifier($app->getLog());
         $slackTsNotifier->sendUserList();
     });
 
     $app->run();
-
