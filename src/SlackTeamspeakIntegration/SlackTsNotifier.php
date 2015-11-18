@@ -9,15 +9,17 @@
         private $config;
         private $logger;
         private $ts3Server;
+        private $channel;
 
         /**
          * Connect to TeamSpeak3 server
          */
-        function __construct($logger) {
+        function __construct($logger, $channel = null) {
 
           $cfg = new Config($logger);
-          $this->config = $cfg->get();
-          $this->logger = $logger;
+          $this->config  = $cfg->get();
+          $this->logger  = $logger;
+          $this->channel = $channel;
 
           $TsServerConfig = array(
               $this->config['teamspeak']['user'],
@@ -61,9 +63,10 @@
          * @return null
          */
         protected function send($message){
+          $chan = is_null($this->channel) ? $this->config['slack']['channel'] : '#'.$this->channel;
           $settings = [
               'username' => $this->config['slack']['username'],
-              'channel' => $this->config['slack']['channel']
+              'channel' => $chan
           ];
 
           $client = new Maknz\Slack\Client($this->config['slack']['endpoint'],$settings);

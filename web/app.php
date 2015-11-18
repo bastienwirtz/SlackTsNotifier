@@ -13,7 +13,8 @@
      * @see https://api.slack.com/slash-commands
      */
     $app->post('/clients', function () use ($app) {
-        $slackTsNotifier = new SlackTsNotifier($app->getLog());
+        $channel = $app->request->post('channel_name');
+        $slackTsNotifier = new SlackTsNotifier($app->getLog(), $channel);
         $slackTsNotifier->sendUserList();
     });
 
