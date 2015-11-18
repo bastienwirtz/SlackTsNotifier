@@ -8,6 +8,7 @@
 
         private $config;
         private $logger;
+        private $ts3Server;
 
         /**
          * Connect to TeamSpeak3 server
@@ -41,7 +42,7 @@
         protected function getTeamspeakUsers() {
 
           if (is_null($this->ts3Server))
-            return '';
+            return array();
 
           // filter client_type to exclude server query command
           $clients = $this->ts3Server->clientList(array('client_type' => 0));
@@ -81,9 +82,8 @@
           foreach ($users as $user) {
             $message .= "\t - " . $user . "\n";
           }
-          $message .= "\n" . $this->config['slack'];
+          $message .= "\n" . $this->config['slack']['join_us_message'];
 
           $this->send($message);
         }
     }
-
