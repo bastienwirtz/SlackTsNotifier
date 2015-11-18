@@ -7,7 +7,8 @@
 
 
     $app = new Slim();
-
+    $app->config('debug', false);
+    
     /**
      * List TeamSpeak connected clients for custom slack slash commands
      * @see https://api.slack.com/slash-commands
